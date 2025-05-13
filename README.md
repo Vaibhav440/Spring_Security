@@ -22,17 +22,23 @@ Displays a random password in the console at startup
 
 
 👤 Default Credentials
+
   Key	                Value
+  
 Username	            user
+
 Password	        See console (Startup Logs)
 
 🔗 Accessing a Secured API
+
 1. Via Browser (e.g., Chrome)
+   
 You'll see a default Spring Security login page.
 
 Enter the default or configured credentials.
 
 2. Via Postman
+   
 Go to the Authorization tab
 
 Choose type: Basic Auth
@@ -47,19 +53,30 @@ Authorization: Basic Base64Encode(username:password)
    
 You must add authentication headers while sending the request.
 
-Example using RestTemplate:
+Example using RestTemplate
+
 RestTemplate restTemplate = new RestTemplate();
+
 HttpHeaders headers = new HttpHeaders();
+
 headers.setBasicAuth("user", "password"); // Replace with your values
+
 HttpEntity<String> entity = new HttpEntity<>(headers);
 
 ResponseEntity<String> response = restTemplate.exchange(
+
     "http://localhost:8080/secured-endpoint",
+    
     HttpMethod.GET,
+    
     entity,
+    
     String.class
+    
 );
+
 System.out.println(response.getBody());
+
 
 🔧 Overriding Default Credentials
 
