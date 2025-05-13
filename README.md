@@ -40,9 +40,11 @@ Choose type: Basic Auth
 Enter your username and password
 
 🔐 Or manually add to headers:
+
 Authorization: Basic Base64Encode(username:password)
 
 3. Programmatically (via RestTemplate or WebClient)
+   
 You must add authentication headers while sending the request.
 
 Example using RestTemplate:
@@ -60,12 +62,14 @@ ResponseEntity<String> response = restTemplate.exchange(
 System.out.println(response.getBody());
 
 🔧 Overriding Default Credentials
+
 Set custom username and password in application.properties:
 
 spring.security.user.name=admin
 spring.security.user.password=admin123
 
 🔐 Custom Security Configuration
+
 Create a SecurityFilterChain bean to override default behavior:
 @Configuration
 @EnableWebSecurity
@@ -86,6 +90,7 @@ public class SecurityConfig {
     }
 }
 ✅ Summary
+
 🔒 Spring Security protects both Web & REST APIs.
 
 🧰 Adding the dependency auto-enables basic security.
